@@ -1,0 +1,866 @@
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Red Hat Display", sans-serif;
+}
+
+body {
+  background-color: #000000;
+  overflow: scroll;
+  color: white;
+}
+
+header {
+  padding: 15px 2%;
+  height: 13vh;
+  position: sticky;
+  top: 0;
+  z-index: 10000;
+  overflow: hidden;
+  background-color: rgba(16, 16, 16, 0.85);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.482);
+  transition: all 0.3s ease-in-out;
+}
+
+.logo {
+  width: 225px;
+  height: 70px;
+  margin-bottom: 3px;
+  margin-left: 10px;
+}
+
+header > .interface {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-height: 140px;
+  padding: 0px 5px;
+}
+
+header a {
+  color: #6a6969;
+  text-decoration: none;
+  font-size: 16px;
+  display: inline-block;
+  transition: 0.5s;
+}
+
+header a:hover {
+  color: #ffffff;
+  transform: scale(1.05);
+}
+
+header nav ul {
+  list-style-type: none;
+}
+
+header nav ul li {
+  display: inline-block;
+  padding: 0 30px;
+}
+
+@keyframes backgroundGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.generate-button {
+  padding: 10px 25px;
+  font-size: 15px;
+  font-weight: 500;
+  background-color: rgb(173, 12, 190);
+  color: white;
+  border: 0;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 2s;
+}
+
+.generate-button:hover {
+  transform: scale(1.05);
+  animation: backgroundGradient 3s infinite alternate;
+  background: linear-gradient(
+    -45deg,
+    #5b058c,
+    rgb(157, 9, 174),
+    #5b058c,
+    rgb(171, 6, 189)
+  );
+  background-size: 400% 400%;
+}
+
+section.welcome {
+  font-size: 25px;
+  text-align: center;
+  position: relative;
+}
+
+section.welcome .flex {
+  position: relative;
+  width: 100%;
+  height: 87vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-bottom: 10px;
+  background: rgba(20, 20, 20, 0.517);
+  z-index: 0;
+  overflow: hidden;
+}
+
+/* CIRCLES */
+.circle1,
+.circle2 {
+  position: absolute;
+  width: 38%;
+  height: 63%;
+  mix-blend-mode: screen;
+  animation-timing-function: linear;
+  overflow: visible;
+}
+
+.circle1 .pulse,
+.circle2 .pulse {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at center,
+    rgb(186, 7, 206) 0%,
+    transparent 80%
+  );
+  filter: blur(100px);
+  animation: pulseEffect 4.5s ease-in-out infinite alternate;
+}
+
+.circle2 .pulse {
+  background: radial-gradient(
+    circle at center,
+    rgb(97, 3, 173) 0%,
+    transparent 115%
+  );
+}
+
+.circle1 {
+  top: 12%;
+  left: -2%;
+  animation: moveInvert1 10s linear infinite;
+}
+
+.circle2 {
+  top: 17%;
+  right: -2%;
+  animation: moveInvert2 10s linear infinite;
+}
+
+@keyframes moveInvert1 {
+  0% {
+    transform: translate(-2vh, 2vh);
+  }
+
+  25% {
+    transform: translate(30vw, 20vw);
+  }
+
+  50% {
+    transform: translate(75vw, 3vw);
+  }
+
+  75% {
+    transform: translate(30vw, -10vw);
+  }
+
+  100% {
+    transform: translate(-2vh, 2vh);
+  }
+}
+
+@keyframes moveInvert2 {
+  0% {
+    transform: translate(2vh, -2vh);
+  }
+
+  25% {
+    transform: translate(-30vw, -10vw);
+  }
+
+  50% {
+    transform: translate(-75vw, 0vw);
+  }
+
+  75% {
+    transform: translate(-30vw, 18vw);
+  }
+
+  100% {
+    transform: translate(2vh, -2vh);
+  }
+}
+
+@keyframes pulseEffect {
+  0% {
+    transform: scale(0.95);
+    filter: blur(90px);
+  }
+
+  25% {
+    transform: scale(1.15);
+    filter: blur(130px);
+  }
+
+  50% {
+    transform: scale(0.95);
+    filter: blur(90px);
+  }
+
+  75% {
+    transform: scale(1.15);
+    filter: blur(130px);
+  }
+
+  100% {
+    transform: scale(0.95);
+    filter: blur(90px);
+  }
+}
+
+section.welcome h1 {
+  font-size: 60px;
+  font-weight: bold;
+  color: #fff;
+  z-index: 2;
+  position: relative;
+  margin-bottom: 10px;
+}
+
+section.welcome p {
+  color: white;
+  font-size: 22px;
+  padding: 0px 150px;
+}
+
+section.welcome button {
+  padding: 10px 30px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  background-color: rgb(173, 12, 190);
+  border: 0;
+  border-radius: 30px;
+  cursor: pointer;
+  z-index: 2;
+  position: relative;
+  margin-top: 40px;
+  transition: 2s;
+}
+
+section.about {
+  padding: 100px 10%;
+  padding-bottom: 10px;
+  text-align: center;
+  color: white;
+  max-height: 800px;
+  margin-top: 250px;
+}
+
+section.about .flex {
+  width: 80%;
+  height: 90%;
+  justify-self: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: row;
+  padding: 40px;
+  background-color: #101010;
+  border-radius: 30px;
+  border-top: 2px solid rgba(88, 86, 86, 0.481);
+  border-bottom: 2px solid rgba(88, 86, 86, 0.481);
+  gap: 60px;
+}
+
+section.about h2 {
+  font-size: 40px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+section.about p {
+  font-size: 18px;
+  margin: 30px;
+}
+
+section.about .txt {
+  width: 70%;
+}
+
+section.about .icon {
+  width: 30%;
+  margin-left: 25px;
+}
+
+section.about .icon img {
+  width: 270px;
+  height: 280px;
+  position: relative;
+  animation: floatLoop 3s linear infinite;
+  border: 3px solid rgba(236, 20, 204, 0.7);
+  border-radius: 50%;
+  box-shadow: 0 0 25px rgba(236, 20, 204, 0.4);
+  transition: transform 0.3s ease;
+}
+
+@keyframes floatLoop {
+  0% {
+    transform: translateY(5px) rotate(0deg);
+    box-shadow: 0 0 15px rgba(236, 20, 204, 0.2);
+  }
+
+  50% {
+    transform: translateY(-10px) rotate(1deg);
+    box-shadow: 0 0 25px rgba(236, 20, 204, 0.6);
+  }
+
+  100% {
+    transform: translateY(5px) rotate(0deg);
+    box-shadow: 0 0 15px rgba(236, 20, 204, 0.2);
+  }
+}
+
+section.login-register {
+  padding: 100px 10%;
+  padding-bottom: 10px;
+  text-align: center;
+  color: white;
+  height: 600px;
+  margin-top: 120px;
+  margin-bottom: 160px;
+}
+
+section.login-register .flex {
+  width: 90%;
+  height: 60%;
+  justify-self: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  padding: 50px;
+  background-color: #000000;
+  border-radius: 30px;
+  gap: 50px;
+}
+
+section.login-register .content {
+  display: flex;
+  position: relative;
+  width: 450px;
+  height: 450px;
+  background: repeating-conic-gradient(
+    from var(--a),
+    rgb(173, 12, 190) 0%,
+    rgb(173, 12, 190) 5%,
+    transparent 5%,
+    transparent 40%,
+    rgb(173, 12, 190) 50%
+  );
+  animation: animateBorders 4s linear infinite;
+  border-radius: 30px;
+}
+
+section.login-register .content::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: repeating-conic-gradient(
+    from var(--a),
+    rgb(59, 5, 140) 0%,
+    rgb(59, 5, 140) 5%,
+    transparent 5%,
+    transparent 40%,
+    rgb(59, 5, 140) 50%
+  );
+  animation: animateBorders 4s linear infinite;
+  animation-delay: -1s;
+  border-radius: 30px;
+}
+
+@keyframes animateBorders {
+  0% {
+    --a: 0deg;
+  }
+
+  100% {
+    --a: 360deg;
+  }
+}
+
+@property --a {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+section.login-register .content::after {
+  content: "";
+  position: absolute;
+  inset: 5px;
+  background-color: #000000;
+  border-radius: 30px;
+  border: 0px solid #000000;
+}
+
+section.login-register h2 {
+  font-size: 40px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-decoration: underline;
+}
+
+.login-register p {
+  margin-top: 15px;
+}
+
+form {
+  display: flex;
+  font-family: "Red Hat Display", sans-serif;
+  flex-direction: column;
+  justify-content: center;
+  width: 80%;
+  gap: 15px;
+}
+
+.login-register button {
+  margin-top: 20px;
+  align-self: center;
+  padding: 8px 25px;
+  width: 100px;
+  font-size: 14px;
+  font-weight: 500;
+  background-color: rgb(173, 12, 190);
+  color: white;
+  border: 0;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 2s;
+}
+
+.login-register button:hover {
+  transform: scale(1.05);
+  animation: backgroundGradient 3s infinite alternate;
+  background: linear-gradient(
+    -45deg,
+    #5b058c,
+    rgb(157, 9, 174),
+    #5b058c,
+    rgb(171, 6, 189)
+  );
+  background-size: 400% 400%;
+}
+
+form input,
+textarea {
+  width: 100%;
+  font-family: "Red Hat Display", sans-serif;
+  padding: 10px 10px;
+  background-color: rgba(88, 83, 83, 0.392);
+  border: none;
+  outline: none;
+  border-radius: 15px;
+  color: white;
+  font-size: 14px;
+}
+
+section.login-register .login-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: absolute;
+  z-index: 2;
+  width: 95%;
+  height: 95%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 40px 8%;
+  background-color: #18181a;
+  color: white;
+  border-radius: 25px;
+}
+
+section.login-register .register-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: absolute;
+  z-index: 2;
+  width: 95%;
+  height: 95%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 40px 8%;
+  background-color: #18181a;
+  color: white;
+  border-radius: 25px;
+}
+
+section.login-register .content .login-form p a {
+  color: #48149c;
+}
+
+section.contact {
+  padding: 100px 10%;
+  padding-bottom: 10px;
+  text-align: center;
+  color: white;
+  height: 600px;
+  margin-top: 40px;
+  margin-bottom: 160px;
+}
+
+section.contact .flex {
+  width: 80%;
+  height: 40%;
+  justify-self: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 50px 20px;
+  background-color: #101010;
+  border-radius: 30px;
+  gap: 40px;
+  border-top: 2px solid rgba(88, 86, 86, 0.481);
+  border-bottom: 2px solid rgba(88, 86, 86, 0.481);
+}
+
+textarea {
+  resize: none;
+  height: 100px;
+}
+
+section.contact .contact-form {
+  width: 46%;
+  border-radius: 30px;
+}
+
+section.contact form {
+  display: flex;
+  justify-self: center;
+}
+
+section.contact h2 {
+  font-size: 40px;
+  font-weight: bold;
+  margin-bottom: 35px;
+  text-decoration: underline;
+}
+
+.contact button {
+  margin-top: 20px;
+  align-self: center;
+  padding: 10px 25px;
+  width: 50%;
+  font-size: 14px;
+  font-weight: 500;
+  background-color: rgb(173, 12, 190);
+  color: white;
+  border: 0;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 2s;
+}
+
+.contact button:hover {
+  transform: scale(1.05);
+  animation: backgroundGradient 3s infinite alternate;
+  background: linear-gradient(
+    -45deg,
+    #5b058c,
+    rgb(157, 9, 174),
+    #5b058c,
+    rgb(171, 6, 189)
+  );
+  background-size: 400% 400%;
+}
+
+section.contact .decoration {
+}
+
+footer {
+  padding: 0px 4%;
+  background-size: 400% 400%;
+  color: white;
+  background-color: rgba(16, 16, 16, 0.85);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 -10px 20px rgba(0, 0, 0, 0.2); /* sombra no topo */
+}
+
+footer > .interface {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 8.5vh;
+  gap: 40px;
+  padding-top: 8px;
+}
+
+footer .footer-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  gap: 10px;
+}
+
+footer .footer-text p {
+  font-size: 14px;
+  color: rgb(54, 54, 54);
+}
+
+footer .conect-icons {
+  display: flex;
+  justify-items: center;
+  justify-content: center;
+  z-index: 5;
+  gap: 15px;
+}
+
+footer a {
+  padding: 10px 0px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+footer a:hover {
+  transform: scale(1.1);
+}
+
+.circle-img {
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+  border: 1px solid white;
+  border-radius: 50%;
+}
+
+section.home {
+  font-size: 25px;
+  text-align: center;
+  position: relative;
+}
+
+section.home .flex {
+  padding: 0px 2%;
+  position: relative;
+  width: 100%;
+  height: 78vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: rgba(20, 20, 20, 0.517);
+  z-index: 0;
+  overflow: hidden;
+}
+
+section.home h1 {
+  font-size: 70px;
+}
+
+section.home button {
+  margin-top: 40px;
+  font-size: 20px;
+}
+
+section.home {
+  font-size: 25px;
+  text-align: center;
+  position: relative;
+}
+
+section.history .flex {
+  justify-self: center;
+  position: relative;
+  margin-top: 90px;
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-bottom: 120px;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.history-box {
+}
+
+#proposals-table {
+  padding: 20px;
+  width: 100%;
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000000;
+  border: 1px solid #6a6969;
+  border-radius: 30px;
+}
+
+#proposals-table th {
+  padding: 16px 70px;
+  text-align: center;
+}
+
+section.history h2 {
+  font-size: 50px;
+  text-align: center;
+  align-self: flex-start;
+  text-decoration: underline;
+}
+
+section.proposal-form {
+  padding: 100px 10%;
+  text-align: center;
+  color: white;
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+.proposal-form .interface {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.proposal-form .form-box {
+  width: 80%;
+  padding: 50px;
+  background-color: #101010;
+  border-radius: 30px;
+}
+
+.proposal-form h2 {
+  font-size: 40px;
+  font-weight: bold;
+  margin-bottom: 30px;
+  text-decoration: underline;
+}
+
+.proposal-form form {
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  gap: 15px;
+}
+
+.proposal-form form input,
+.proposal-form form select,
+.proposal-form form textarea {
+  padding: 12px;
+  border: none;
+  border-radius: 15px;
+  background-color: rgba(88, 83, 83, 0.392);
+  color: white;
+  font-size: 14px;
+}
+
+.proposal-form form select {
+  background-color: rgba(88, 83, 83, 0.6);
+}
+
+.proposal-form form button {
+  margin-top: 20px;
+  align-self: center;
+  padding: 10px 30px;
+  background-color: rgb(173, 12, 190);
+  color: white;
+  border: 0;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 2s;
+}
+
+.proposal-form form button:hover {
+  transform: scale(1.05);
+  animation: backgroundGradient 3s infinite alternate;
+  background: linear-gradient(
+    -45deg,
+    #5b058c,
+    rgb(157, 9, 174),
+    #5b058c,
+    rgb(171, 6, 189)
+  );
+  background-size: 400% 400%;
+}
+
+.custom-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.custom-modal {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  max-width: 500px;
+  width: 90%;
+  text-align: center;
+}
+
+.modal-actions {
+  margin-top: 20px;
+}
+
+.modal-actions button {
+  margin: 0 10px;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#approve-btn {
+  background-color: #4caf50;
+  color: white;
+}
+
+#save-btn {
+  background-color: #2196f3;
+  color: white;
+}
+
+#reject-btn {
+  background-color: #f44336;
+  color: white;
+}
