@@ -18,12 +18,12 @@ public class Server {
     public void startServer() {
         while (!serverSocket.isClosed()) {
             try {
-                Socket socket = serverSocket.accept(); // Waits for a client to connect
+                Socket socket = serverSocket.accept();
                 System.out.println("A new client is on");
 
-                ClientHandler clientHandler = new ClientHandler(socket); // Handles the client
-                Thread thread = new Thread(clientHandler); // Runs client handler in a separate thread
-                thread.start(); // Starts the thread for handling client
+                ClientHandler clientHandler = new ClientHandler(socket);
+                Thread thread = new Thread(clientHandler);
+                thread.start();
 
             } catch (IOException e) {
             }
