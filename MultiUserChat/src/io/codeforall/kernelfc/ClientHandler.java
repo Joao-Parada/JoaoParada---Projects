@@ -33,16 +33,17 @@ public class ClientHandler implements Runnable {
         while (socket.isConnected()) {
             try {
                 messageFromClient = bufferedReader.readLine();
-                broadcastMessage(messageFromClient);
-
-
+                if (messageFromClient == null) {
+                    System.out.println(clientUserName + " disconnected");
+                    break;
+                }
+                System.out.println(clientUserName + ": " + messageFromClient);
+                broadcastMessage(clientUserName + ": " + messageFromClient);
             } catch (IOException e) {
-                throw new RuntimeException(e);
-
+                System.out.println("Error reading from client " + clientUserName);
+                break;
             }
-
         }
-
     }
     public void broadcastMessage(String messageToSend){
         for (ClientHandler clientHandler : clientHandlers) {
