@@ -16,9 +16,9 @@ public class Grid {
         rectangleArray = new Rectangle[ROWS][COLS];
         drawGrid();
     }
-
+0
     public Rectangle[][] getRectangleArray() {
-        return rectangleArray;
+        return rectangleArray
     }
 
     private void drawGrid() {
