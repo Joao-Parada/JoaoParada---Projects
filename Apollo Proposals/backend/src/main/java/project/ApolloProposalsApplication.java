@@ -12,7 +12,6 @@ public class ApolloProposalsApplication extends SpringBootServletInitializer {
     protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
         return builder.sources(ApolloProposalsApplication.class);
     }
-
     public static void main(String[] args) {
         SpringApplication.run(ApolloProposalsApplication.class, args);
     }
