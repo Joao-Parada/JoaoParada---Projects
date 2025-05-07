@@ -10,9 +10,6 @@ public class Position {
     private static final int CELL_SIZE = 30;  // Tamanho de cada célula
     private static final int PADDING = 10;    // Margem da grid
 
-
-
-
     public Position(int col, int row){
         this.col = col;
         this.row = row;
